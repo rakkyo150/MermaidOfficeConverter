@@ -5,7 +5,13 @@ input_file="$1"
 filename=$(basename "$input_file" .md)
 
 mmdc -f -i "$input_file" -o "$filename.pdf"
-pdf2svg "$filename-1.pdf" "$filename.svg"
+if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
+    # Windowsの場合、pdf2svgのインストールが面倒なので、wslでpdf2svgをインストールして使う
+    wsl pdf2svg "$filename-1.pdf" "$filename.svg"
+else
+  # wslやWindows以外の場合
+  pdf2svg "$filename-1.pdf" "$filename.svg"
+fi
 rm "$filename-1.pdf"
 echo "変換が終了しました: $filename.svg"
 
