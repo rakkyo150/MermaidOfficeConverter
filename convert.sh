@@ -1,8 +1,14 @@
 #!/bin/bash
 
-input_file="$1"
+folder_name="mermaid_source"
 
-filename=$(basename "$input_file" .md)
+input_file="$folder_name/$1"
+
+base_filename=$(basename "$input_file" .md)
+filename="$folder_name/$base_filename"
+
+echo $input_file
+echo $filename
 
 mmdc -f -i "$input_file" -o "$filename.pdf"
 if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
@@ -17,12 +23,12 @@ echo "変換が終了しました: $filename.svg"
 
 if [ -f /proc/version ] && grep -q Microsoft /proc/version; then
     # WSLの場合
-    cmd.exe /c explorer .
+    cmd.exe /c explorer $folder_name/.
 elif [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
-    explorer .
+    explorer $folder_name/.
 else
 # Windowsなら`explorer .`
-  open .
+  open $folder_name/.
 fi
 
 # read
