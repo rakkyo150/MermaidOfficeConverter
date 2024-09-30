@@ -1,11 +1,13 @@
 # 使い方
-vscodeでmermaidを作成。  
-その後、Microsoft Officeのツールに貼り付けるのに適切な形式に変換する。  
-vscodeのターミナルで以下を実行。
+mermaid_sourceディレクトリを作成し、その中にmdファイルを作成。  
+mdファイルの中でmermaidを作成。  
+その後、Microsoft Officeのソフトに貼り付けるのに適切な形式であるsvgに変換するため、`convert.sh`を実行。 
 ```bash
+mkdir mermaid_source
+vim mermaid_source/input.md
 sh convert.sh input.md
 ```
 
 # 依存ツール
-mermaid-cli  
-pdf2svg
+[mermaid-cli](https://github.com/mermaid-js/mermaid-cli)  
+[pdf2svg](https://github.com/dawbarton/pdf2svg)
