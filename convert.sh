@@ -2,7 +2,7 @@
 
 folder_name="mermaid_source"
 input_file="$folder_name/$1"
-base_filename=$(basename "$input_file" .md)
+base_filename="${1%.md}"
 filename="$folder_name/$base_filename"
 
 mmdc -f -i "$input_file" -o "$filename.pdf"
