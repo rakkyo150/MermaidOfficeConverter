@@ -8,7 +8,7 @@ filename="$folder_name/$base_filename"
 mmdc -f -i "$input_file" -o "$filename.pdf"
 if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
     # Windowsの場合、pdf2svgのインストールが面倒なので、wslでpdf2svgをインストールして使う
-    wsl pdf2svg "$filename-1.pdf" "$filename.svg"
+    wsl -e bash -l -c pdf2svg "$filename-1.pdf" "$filename.svg"
 else
   # wslやWindows以外の場合
   pdf2svg "$filename-1.pdf" "$filename.svg"
