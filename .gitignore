@@ -3,4 +3,5 @@
 !README.md
 *.svg
 node_modules/
-mermaid_source
+mermaid_source/
+.gitmodules
