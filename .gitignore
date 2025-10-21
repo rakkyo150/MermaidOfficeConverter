@@ -2,3 +2,5 @@
 *.md
 !README.md
 *.svg
+node_modules/
+mermaid_source

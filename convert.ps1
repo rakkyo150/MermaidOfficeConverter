@@ -8,7 +8,7 @@ $input_file = "$folder_name/$($args[0])"
 $base_filename = [System.IO.Path]::GetFileNameWithoutExtension($args[0])
 $filename = "$folder_name/$base_filename"
 
-mmdc -f -i $input_file -o "$filename.pdf"
+./node_modules/.bin/mmdc -f -i $input_file -o "$filename.pdf"
 wsl -e bash -l -c "pdf2svg '$filename-1.pdf' '$filename.svg'"
 Remove-Item "$filename-1.pdf"
 Write-Output "Finish Converting: $filename.svg"

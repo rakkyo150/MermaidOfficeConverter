@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "^11.4.0"
+  },
+  "volta": {
+    "node": "22.21.0",
+    "npm": "11.6.2"
+  }
+}
